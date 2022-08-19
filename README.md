@@ -7,3 +7,13 @@ https://laravel-news.com/allowing-users-to-send-email-with-their-own-smtp-settin
 ### - Excelente curso na udemy que me ajudou a entender o funcionamento do Laravel
 #### por mais que se saiba muito de PHP para utilizar frameworks é muito importante entender seus fundamentos.
 https://www.udemy.com/course/curso-completo-do-desenvolvedor-laravel
+
+### - Projetos Opensource em LARAVEL
+#### Vitrine que está se transformado aos poucos em um Ecommerce
+https://github.com/andmarruda/sbshowcase
+
+#### Blog pessoal com excelentes recursos
+https://github.com/andmarruda/sbblog
+
+
+Caso tenha sugestões para a lista por favor me envie no meu email: contato@sysborg.com.br
