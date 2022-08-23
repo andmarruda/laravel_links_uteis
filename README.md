@@ -18,7 +18,7 @@ https://github.com/andmarruda/sbblog
 ### - Códigos úteis
 #### Verificando se em alguma rota existe parametros a serem setados.
 ```php
-Route::getRoutes()->getByName('route-name')->hasParameters(); //returns true if has and false if not
+Route::getRoutes()->getByName('route-name')->hasParameters(); //retorna true se existe e false se não existir
 ```
 
 Caso tenha sugestões para a lista por favor me envie no meu email: contato@sysborg.com.br
