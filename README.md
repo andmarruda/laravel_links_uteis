@@ -15,5 +15,10 @@ https://github.com/andmarruda/sbshowcase
 #### Blog pessoal com excelentes recursos
 https://github.com/andmarruda/sbblog
 
+### - Códigos úteis
+#### Verificando se em alguma rota existe parametros a serem setados.
+```php
+Route::getRoutes()->getByName('route-name')->hasParameters(); //returns true if has and false if not
+```
 
 Caso tenha sugestões para a lista por favor me envie no meu email: contato@sysborg.com.br
