@@ -16,12 +16,15 @@ https://github.com/andmarruda/sbshowcase
 https://github.com/andmarruda/sbblog
 
 ### - Códigos úteis
-#### Verificando se em alguma rota existe parametros a serem setados.
+#### Verificando parâmetros setados em uma rota.
 ```php
 Route::getRoutes()->getByName('route-name')->hasParameters(); //retorna true se existe e false se não existir
 ```
 
-Caso tenha sugestões para a lista por favor me envie no meu email: contato@sysborg.com.br
+#### Verificando se existem parâmetros que devem ser setados em uma rota
+```php
+(count(Route::getRoutes()->getByName('route-name')->parameterNames())>0); //retorna true se existe e false se não existir
+```
 
 ### - Email customizado - Utilizando banco de dados para entradas de configurações - Laravel 9.x
 #### Exemplo bem simples retirado do meu repositório sbshowcase. Da um caminho para todos que como eu precisou de um recurso similar no laravel 9.x
@@ -68,3 +71,5 @@ class AppServiceProvider extends ServiceProvider
     }
 }
 ```
+
+Caso tenha sugestões para a lista por favor me envie no meu email: contato@sysborg.com.br
