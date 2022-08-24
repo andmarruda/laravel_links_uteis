@@ -22,3 +22,49 @@ Route::getRoutes()->getByName('route-name')->hasParameters(); //retorna true se 
 ```
 
 Caso tenha sugestões para a lista por favor me envie no meu email: contato@sysborg.com.br
+
+### - Email customizado - Utilizando banco de dados para entradas de configurações - Laravel 9.x
+#### Exemplo bem simples retirado do meu repositório sbshowcase. Da um caminho para todos que como eu precisou de um recurso similar no laravel 9.x
+```php
+<?php
+
+namespace App\Providers;
+
+//use App
+use Illuminate\Mail\Mailer;
+use Symfony\Component\Mailer\Transport;
+use Illuminate\Support\ServiceProvider;
+use App\Models\EmailProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->app->bind('custom.mailer', function($app, $parameters){
+            $ep = EmailProvider::where('email', '=', $parameters['email'])->first();
+            if(is_null($ep))
+                throw new \Exception('Email provider not found with parameter email: '. $parameters['email']);
+
+            $mailer = new Mailer('custom-mailer', $app->get('view'), transport::fromDsn('smtp://'. $ep->email. ':'. $ep->password. '@'. $ep->host. ':'. $ep->port), $app->get('events'));
+            $mailer->alwaysFrom($ep->email, $parameters['name']);
+            $mailer->alwaysReplyTo($ep->email, $parameters['name']);
+
+            return $mailer;
+        });
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+    }
+}
+```
